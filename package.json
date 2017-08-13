@@ -1,0 +1,14 @@
+{
+  "name": "markov-chain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate.js\u001b[D\u001b[D\u001b[DTitle.\u001b[D\u001b[Das\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[2~as\u001bTitle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
