@@ -36,10 +36,8 @@ const generate = (genreArg) => {
         ? obj
         : genreTitle.push(obj.title));
 
-  // console.log(genreTitle);
-
-  for (let i = 0; i < titles.length; i++) {
-      let words = titles[i].split(' ');
+  for (let i = 0; i < genreTitle.length; i++) {
+      let words = genreTitle[i].split(' ');
       terminals[words[words.length-1]] = true;
       initWords.push(words[0]);
       for (let j = 0; j < words.length - 1; j++) {
@@ -71,6 +69,6 @@ const generate = (genreArg) => {
 
 }
 
-// console.log(
-  generate('Drama');
-// );
+console.log(
+  generate('Romance')
+);
