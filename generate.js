@@ -1,11 +1,42 @@
 const fs = require('fs');
+const objify = (obj) => JSON.parse(JSON.stringify(obj));
 const titles = JSON.parse(fs.readFileSync('movieTitleList.txt', 'utf8'));
+const movieGenre = JSON.parse(fs.readFileSync('movieGenreTransform.txt', 'utf8'));
 
-const generate = () => {
 
+const generate = (genreArg) => {
+
+  let genreTitle = [];
+  let genreDict = [];
   let statsWord = {};
   let initWords = [];
   let terminals = {};
+
+  let mapGenre = movieGenre
+    .map(obj =>
+      objify({
+        title: obj.title,
+        genres: (typeof obj.genres === 'string') ? [obj.genres] : obj.genres
+    }));
+
+  // create a array of all genres
+  mapGenre
+    .forEach((obj) =>
+      obj
+        .genres
+        .forEach((x) =>
+          (genreDict.indexOf(x) === -1)
+            ? genreDict.push(x)
+            : x));
+
+  // creates a list of new title base on genre
+  mapGenre
+    .forEach((obj) =>
+      (obj.genres.indexOf(genreArg) === -1)
+        ? obj
+        : genreTitle.push(obj.title));
+
+  // console.log(genreTitle);
 
   for (let i = 0; i < titles.length; i++) {
       let words = titles[i].split(' ');
@@ -40,6 +71,6 @@ const generate = () => {
 
 }
 
-console.log(
-  generate()
-);
+// console.log(
+  generate('Drama');
+// );
