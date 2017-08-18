@@ -1,7 +1,7 @@
 const fs = require('fs');
 const objify = (obj) => JSON.parse(JSON.stringify(obj));
-const titles = JSON.parse(fs.readFileSync('movieTitleList.txt', 'utf8'));
-const movieGenre = JSON.parse(fs.readFileSync('movieGenreTransform.txt', 'utf8'));
+const titles = JSON.parse(fs.readFileSync('movieTitleListLarge.txt', 'utf8'));
+const movieGenre = JSON.parse(fs.readFileSync('movieGenreTransformLarge.txt', 'utf8'));
 
 
 const generate = (genreArg) => {
@@ -36,18 +36,20 @@ const generate = (genreArg) => {
         ? obj
         : genreTitle.push(obj.title));
 
-  for (let i = 0; i < genreTitle.length; i++) {
-      let words = genreTitle[i].split(' ');
-      terminals[words[words.length-1]] = true;
+  // get all the 1st words of the titles
+  genreTitle
+    .forEach((title) => {
+      let words = title.split(' ');
+      terminals[words[words.length - 1]] = true;
       initWords.push(words[0]);
-      for (let j = 0; j < words.length - 1; j++) {
-        if (statsWord.hasOwnProperty(words[j])) {
-          statsWord[words[j]].push(words[j+1]);
-        } else {
-            statsWord[words[j]] = [words[j+1]];
-        }
-      }
-  }
+
+      // creates a map of all the different words that are next
+      words
+        .forEach((_, index) =>
+          (statsWord.hasOwnProperty(words[index]))
+            ? statsWord[words[index]].push(words[index+1])
+            : statsWord[words[index]] = [words[index+1]]);
+    });
 
   const selection = (a) => a[ Math.floor( a.length * Math.random() ) ];
 
@@ -64,11 +66,11 @@ const generate = (genreArg) => {
     return title.join(' ');
   };
 
-  let newTitle = make_title(4 + Math.floor(3 * Math.random()));
+  let newTitle = make_title(6 + Math.floor(3 * Math.random()));
   return newTitle;
 
 }
 
 console.log(
-  generate('Romance')
+  generate('Horror')
 );
