@@ -11,12 +11,12 @@
 The following main data sources were used for this project.
 
 - [MovieLens](http://grouplens.org/datasets/movielens/)
-- [MovieLens - |large 20 mill|](http://grouplens.org/datasets/movielens/20m/)
-- [MovieLens latest - |Largest 26mill|](http://grouplens.org/datasets/movielens/latest/)
+- [MovieLens - large 20 mill](http://grouplens.org/datasets/movielens/20m/)
+- [MovieLens latest - Largest 26mill](http://grouplens.org/datasets/movielens/latest/)
 
 ### *MovieLens*
 
-The MovieLens movie ratings data is provided by GroupLens Research in datasets ranging in size from 100K to 26 million. There is a "Latest" dataset that includes more recent ratings data up to 2016. I decided to use the latest research set of 26 million (MovieLens 26M) of ratings, tags, titles, and users.
+The MovieLens movie ratings data is provided by GroupLens Research in datasets ranging in size from 100K to 26 million. There is a "Latest" dataset that includes more recent ratings data up to 2016. I decided to use the latest research set of 26 million ratings, tags, titles, and users.
 
 Permalink (20M): http://grouplens.org/datasets/movielens/20m/
 
