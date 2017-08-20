@@ -1,7 +1,7 @@
 const fs = require('fs');
 const objify = (obj) => JSON.parse(JSON.stringify(obj));
-const titles = JSON.parse(fs.readFileSync('movieTitleListLarge.txt', 'utf8'));
-const movieGenre = JSON.parse(fs.readFileSync('movieGenreTransformLarge.txt', 'utf8'));
+const titles = JSON.parse(fs.readFileSync('movieTitleListSuper.txt', 'utf8'));
+const movieGenre = JSON.parse(fs.readFileSync('movieGenreTransformSuper.txt', 'utf8'));
 
 
 const generate = (genreArg) => {
@@ -66,11 +66,11 @@ const generate = (genreArg) => {
     return title.join(' ');
   };
 
-  let newTitle = make_title(6 + Math.floor(3 * Math.random()));
+  let newTitle = make_title(4 + Math.floor(3 * Math.random()));
   return newTitle;
 
 }
 
 console.log(
-  generate('Horror')
+  generate('War')
 );
