@@ -12,6 +12,7 @@ const generate = (genreArg) => {
   let initWords = [];
   let terminals = {};
 
+  // tranform movieGenre into my preferred format
   let mapGenre = movieGenre
     .map(obj =>
       objify({
@@ -51,26 +52,42 @@ const generate = (genreArg) => {
             : statsWord[words[index]] = [words[index+1]]);
     });
 
+  // shows the user the other genre options they have
+  console.log(genreDict);
+
+  // picks a random element from that array you pass in
   const selection = (a) => a[ Math.floor( a.length * Math.random() ) ];
 
+  // function that make title of x words from the mapped state + following word probability
   const make_title = (min_length) => {
+
+    // pick a random word to start the title from initWords
     word = selection(initWords);
     let title = [word];
+
+    // loop as long as the selected word is probable and push to title
     while (statsWord.hasOwnProperty(word)) {
       let next_words = statsWord[word];
       word = selection(next_words);
       title.push(word);
-      if (title.length > min_length && terminals.hasOwnProperty(word)) break;
+
+      // if length of title > min_length && if selected word exist in terminals break out
+      if (title.length > min_length && terminals.hasOwnProperty(word)) {
+        break;
+      }
     }
-    if (title.length < min_length) return make_title(min_length);
+
+    if (title.length < min_length) {
+      return make_title(min_length);
+    }
+
     return title.join(' ');
   };
 
   let newTitle = make_title(4 + Math.floor(3 * Math.random()));
-  return newTitle;
+  console.log('\n'+newTitle);
 
 }
 
-console.log(
-  generate('War')
-);
+// so far my favorite titles are from sci-fi generation
+generate('Sci-Fi');
