@@ -25,11 +25,37 @@ The MovieLens ~ [Movie Title's/Genre] data is provided by GroupLens Research as 
 
 ### *Benchmark*
 
+##### *Dataset ~ 9,000*
+
+```
+
+# Hardware ~ (HP Spectre x360, 2.7 GHz i7-7500U CPU):
+$ time node generate.js
+real    0m0.395s
+user    0m0.000s
+sys     0m0.030s
+
+```
+
+##### *Dataset ~ 27,000*
+
 ```
 
 # Hardware ~ (HP Spectre x360, 2.7 GHz i7-7500U CPU):
 $ time node generate.js
 real    0m0.485s
+user    0m0.010s
+sys     0m0.030s
+
+```
+
+##### *Dataset ~ 45,000*
+
+```
+
+# Hardware ~ (HP Spectre x360, 2.7 GHz i7-7500U CPU):
+$ time node generate.js
+real    0m0.602s
 user    0m0.000s
 sys     0m0.030s
 
