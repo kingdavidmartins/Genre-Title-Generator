@@ -61,14 +61,24 @@ sys     0m0.030s
 
 ```
 
-<!-- ### *Implementation*
 
-#### *Logic* -->
+### *Logic*
 
+My plan was to use a mathematical structure called Markov chain's to model the statistical likelihood of a word in a title being followed by some other word in a title. Then, I could use that statistical information to generate new titles by choosing the first word (at random) and then choosing subsequent words with a frequency proportional to how those words, and how they are arranged in regards to the original title. This will then give me a string of text that will not only be unique, but will also share stylistic properties when compared to the original text.
 
 ### *Result*
 
 My results suggest that generate.js was able to effectively model and observe the created state using Markov Chains, which then made it possible for the system to get the probability of each word and it's successor fairly easily. Thus making sentence/title generation from large datasets accurate and efficient.
+
+```javascript
+
+Example:
+generate('Sci-Fi'); // => 'Interstella 23: Attack of the flying Apes'
+generate('Horror'); // => 'The last dance with the devil'
+generate('Adventure'); // => 'The chronicles of space bots'
+generate('Romance'); // => 'my last kiss, my last puppy, my last everything'
+
+```
 
 ### *Next Steps*
 

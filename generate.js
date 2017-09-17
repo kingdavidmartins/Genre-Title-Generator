@@ -86,7 +86,6 @@ const generate = (genreArg) => {
 
   let newTitle = make_title(4 + Math.floor(3 * Math.random()));
   console.log('\n'+newTitle);
-
 }
 
 // so far my favorite titles are from sci-fi generation
