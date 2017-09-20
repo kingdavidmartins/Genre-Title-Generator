@@ -2,6 +2,15 @@
 
 ## *Movielens Data + Markov Chains = Title Generator*
 
+### *Goal*
+
+My goal was to create a movie title generator that could generate unique movie title's based on a given genre that seemed highly probably when compared to actual move titles.
+
+
+### *Game Plan*
+
+My plan was to use a mathematical structure called Markov chain's to model the statistical likelihood of a word in a title being followed by some other word in a title. Then, I could use that statistical information to generate new titles by choosing the first word (at random) and then choosing subsequent words with a frequency proportional to how those words, and how they are arranged in regards to the original title. This will then give me a string of text that will not only be unique, but will also share stylistic properties when compared to the original text.
+
 
 ### *Why?*
 
@@ -60,11 +69,6 @@ user    0m0.000s
 sys     0m0.030s
 
 ```
-
-
-### *Logic*
-
-My plan was to use a mathematical structure called Markov chain's to model the statistical likelihood of a word in a title being followed by some other word in a title. Then, I could use that statistical information to generate new titles by choosing the first word (at random) and then choosing subsequent words with a frequency proportional to how those words, and how they are arranged in regards to the original title. This will then give me a string of text that will not only be unique, but will also share stylistic properties when compared to the original text.
 
 ### *Result*
 
